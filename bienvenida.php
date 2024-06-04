@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal - PetShop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button onclick="window.location.href='/public/menu.html'" class="back-to-menu">◁ Volver al inicio</button>
+    <div class="content">
+        <h1>Bienvenido a PetShop</h1>
+        <p>Seleccione una opción del menú para continuar.</p>
+    </div>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/public/clientes.html">Gestión de Clientes</a></li>
+            <li><a href="#">Gestión de Perfil</a></li>
+            <li><a href="#">Gestión de Usuarios</a></li>
+            <li><a href="/public/login.html">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+    <footer>
+        <p>&copy; 2024  - PetShop</p>
+    </footer>
+</body>
+</html>

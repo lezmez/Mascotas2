@@ -3,12 +3,16 @@
     include "conexion_be.php";
 
     $nombre_completo = $_POST["nombre_completo"];
+    $apellidos = $_POST["apellidos"];
     $correo = $_POST["correo"];
     $usuario = $_POST["usuario"];
     $contrasena = $_POST["contrasena"];
 
-    $query = "INSERT INTO usuarios(nombre_completo, correo, usuario, contrasena)
-              VALUES('$nombre_completo', '$correo', '$usuario', '$contrasena')";
+    //Encriptamiento de la contraseña
+    //$contrasena = hash('sah512', $contrasena);
+
+    $query = "INSERT INTO usuarios(nombre_completo, apellidos, correo, usuario, contrasena)
+              VALUES('$nombre_completo', '$apellidos', '$correo', '$usuario', '$contrasena')";
 
     //verificar que el correo no se repita en la base de datos
     $verificar_correo = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$correo' ");
