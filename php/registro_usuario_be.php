@@ -12,4 +12,21 @@
 
     $ejecutar = mysqli_query($conexion, $query);
 
+    if($ejecutar){
+        echo '
+            <script>
+                alert("Usuario registrado exitosamente");
+                window.location = "../index.php";
+            </script>
+        ';
+    }else{
+        echo '
+            <script>
+                alert("Intentalo de nuevo, usuario no registrado");
+                window.location = "../index.php";
+            </script>
+        ';
+    }
+
+    mysqli_close($conexion);
 ?>
