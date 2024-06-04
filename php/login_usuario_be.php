@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     include "conexion_be.php";
 
@@ -9,7 +10,8 @@
     and contrasena='$contrasena' ");
 
     if(mysqli_num_rows($validar_login) > 0){
-        header("location: bienvenida.php");
+        $_SESSION['usuario'] = $usuario;
+        header("location: ../bienvenida.php");
         exit();
     }else{
         echo '

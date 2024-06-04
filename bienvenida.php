@@ -1,3 +1,20 @@
+<?php
+
+    session_start();
+
+    if(!isset($_SESSION['usuario'])){
+        echo '
+            <script>
+                alert("Por favor debes iniciar sesión");
+                window.location = "index.php";
+            </script>
+        ';
+        session_destroy();
+        die();
+    }
+    
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,17 +24,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button onclick="window.location.href='/public/menu.html'" class="back-to-menu">◁ Volver al inicio</button>
+    <button onclick="window.location.href='bienvenida.php'" class="back-to-menu">◁ HOME</button>
     <div class="content">
         <h1>Bienvenido a PetShop</h1>
         <p>Seleccione una opción del menú para continuar.</p>
     </div>
     <nav class="navbar">
         <ul>
-            <li><a href="/public/clientes.html">Gestión de Clientes</a></li>
+            <li><a href="bienvenida.php">Gestión de Clientes</a></li>
             <li><a href="#">Gestión de Perfil</a></li>
             <li><a href="#">Gestión de Usuarios</a></li>
-            <li><a href="/public/login.html">Cerrar Sesión</a></li>
+            <li><a href="php/cerrar_sesion.php">Cerrar sesión</a></li>
         </ul>
     </nav>
     <footer>
