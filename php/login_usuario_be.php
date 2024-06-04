@@ -6,13 +6,24 @@
     $usuario = $_POST['usuario'];
     $contrasena = $_POST['contrasena'];
 
-    $validar_login = mysqli_query($conexion, "SELECT * FROM usuarios WHERE usuario='$usuario'
+    $result = mysqli_query($conexion, "SELECT usuarios.nombre_completo, rol.descripcion  FROM usuarios INNER JOIN rol ON(usuarios.id_cargo=rol.id) WHERE usuario='$usuario'
     and contrasena='$contrasena' ");
+    $row = $result -> fetch_array(MYSQLI_ASSOC);
+   
 
-    if(mysqli_num_rows($validar_login) > 0){
-        $_SESSION['usuario'] = $usuario;
+    if(mysqli_num_rows($result) > 0){
+        $_SESSION['usuario'] = $usuario;       
+        //header("location: ../bienvenida.php");
+        //exit();
+       if ($row['descripcion'] == 'Administrador'){
         header("location: ../bienvenida.php");
         exit();
+       }
+       else{
+        header("location: ../bienvenida_cliente.php");
+        exit();
+       
+       } 
     }else{
         echo '
             <script>

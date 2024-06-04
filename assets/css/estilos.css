@@ -13,7 +13,40 @@ body{
     background-position: center;
     background-attachment: fixed;
 }
+.div h1 {
+    color: white;
+}
+.navbar {
+    background-color: #007bff;
+    padding: 15px;
+    text-align: center;
+}
 
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    text-align: center;
+    margin: 50px;
+}
 main{
     width: 100%;
     padding: 20px;
@@ -131,8 +164,6 @@ main{
 }
 
 
-
-
 .formulario__login{
     opacity: 1;
     display: block;
@@ -173,4 +204,19 @@ main{
     .contenedor__login-register form{
         position: relative;
     }
+}
+
+footer {
+    text-align: center;
+    color: #fff;
+    padding: 10px 0;
+    background-color: #000000;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -1px 10px rgb(13, 70, 214);
+}
+
+footer p {
+    margin: 0;
 }
