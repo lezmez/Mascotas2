@@ -24,13 +24,14 @@
     <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 <body>
-    <button onclick="window.location.href='bienvenida.php'" class="back-to-menu">◁ HOME</button>
+    <button onclick="window.location.href='bienvenida_cliente.php'" class="back-to-menu">◁ HOME</button>
     <div class="content">
         <h1>Bienvenido a PetShop</h1>
         <p>Seleccione una opción del menú para continuar.</p>
     </div>
     <nav class="navbar">
         <ul> 
+            <li><a href="php/catalogo.php">Catálogo</a></li>
             <li><a href="php/cerrar_sesion.php">Cerrar sesión</a></li>
         </ul>
     </nav>

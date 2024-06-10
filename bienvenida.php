@@ -22,6 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú Principal - PetShop</title>
     <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
     <button onclick="window.location.href='bienvenida.php'" class="back-to-menu">◁ HOME</button>
@@ -38,7 +39,7 @@
         </ul>
     </nav>
     <footer>
-        <p>&copy; 2024  - PetShop</p>
+        <p>&copy; 2024 LEZMEZ - PetShop</p>
     </footer>
 </body>
 </html>
