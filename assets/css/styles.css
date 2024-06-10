@@ -60,6 +60,7 @@ h2 {
     background-color: #0056b3;
 }
 
+/* Product styles */
 .products {
     display: flex;
     flex-wrap: wrap;
@@ -93,6 +94,20 @@ h2 {
 .product p {
     font-size: 16px;
     color: #666;
+}
+
+.product button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.product button:hover {
+    background-color: #218838;
 }
 
 footer {

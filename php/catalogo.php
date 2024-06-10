@@ -32,6 +32,15 @@ if (isset($_POST['category'])) {
         });
     }
 }
+
+if (isset($_POST['add_to_cart'])) {
+    $productId = $_POST['product_id'];
+    echo '
+        <script>
+            alert("Producto ' . $productId . ' añadido al carrito");
+        </script>
+    ';
+}
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +71,11 @@ if (isset($_POST['category'])) {
                 <div class="product">
                     <img src="../images/<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
                     <h3><?php echo $product['name']; ?></h3>
-                    <p><?php echo $product['price']; ?> USD</p>
+                    <p>$ <?php echo $product['price']; ?> USD</p>
+                    <form method="post">
+                        <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                        <button type="submit" name="add_to_cart">Add to Cart</button>
+                    </form>
                 </div>
             <?php endforeach; ?>
         </div>
