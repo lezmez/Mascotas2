@@ -63,7 +63,9 @@
             </div>
 
         </main>
-
+        <footer>
+        <p>&copy; 2024 LEZMEZ - PetShop</p>
+        </footer>
         <script src="assets/js/script.js"></script>
 </body>
 </html>

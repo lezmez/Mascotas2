@@ -36,7 +36,7 @@
         </ul>
     </nav>
     <footer>
-        <p>&copy; 2024  - PetShop</p>
+        <p>&copy; 2024 LEZMEZ - PetShop</p>
     </footer>
 </body>
 </html>
