@@ -14,12 +14,23 @@ if(!isset($_SESSION['usuario'])){
 }
 
 $products = [
-    ['id' => 1, 'name' => 'Red Rose', 'category' => 'roses', 'price' => 19.999, 'image' => 'rosaroja.jpg'],
-    ['id' => 2, 'name' => 'White Rose', 'category' => 'roses', 'price' => 19.999, 'image' => 'rosablanca.jpg'],
-    ['id' => 3, 'name' => 'Sunflower', 'category' => 'sunflowers', 'price' => 15.999, 'image' => 'girasol.jpg'],
-    ['id' => 4, 'name' => 'Tulip', 'category' => 'tulips', 'price' => 26.999, 'image' => 'tulipan.jpg'],
-    ['id' => 5, 'name' => 'Orchid', 'category' => 'orchids', 'price' => 39.999, 'image' => 'orquidea.jpg'],
-    ['id' => 6, 'name' => 'Lily', 'category' => 'lilies', 'price' => 30.999, 'image' => 'lirio.jpg'],
+    ['id' => 1, 'name' => 'Collar para Gato', 'category' => 'collares', 'price' => 19.999, 'image' => '../assets/images/collargato.jpeg'],
+    ['id' => 2, 'name' => 'Collar para Perro', 'category' => 'collares', 'price' => 19.999, 'image' => '../assets/images/collarperro.jpg'],
+    ['id' => 3, 'name' => 'Combo de Juguetes', 'category' => 'juguetes', 'price' => 15.999, 'image' => '../assets/images/combojuguetes.jpg'],
+    ['id' => 4, 'name' => 'Dog Chow', 'category' => 'alimento', 'price' => 26.999, 'image' => '../assets/images/dogchow.jpg'],
+    ['id' => 5, 'name' => 'Dog Chow', 'category' => 'alimento', 'price' => 39.999, 'image' => '../assets/images/dogchowadultos.jpg'],
+    ['id' => 6, 'name' => 'Dog Gourmet Adultos', 'category' => 'alimento', 'price' => 30.999, 'image' => '../assets/images/dogourmetadulto.jpg'],
+    ['id' => 7, 'name' => 'Don Kat', 'category' => 'alimento', 'price' => 30.999, 'image' => '../assets/images/DONKAT.jpg'],
+    ['id' => 8, 'name' => 'Hueso Argos', 'category' => 'premios', 'price' => 30.999, 'image' => '../assets/images/huesoargos.jpeg'],
+    ['id' => 9, 'name' => 'Croquetas Premio', 'category' => 'premios', 'price' => 30.999, 'image' => '../assets/images/huesopremio.jpg'],
+    ['id' => 10, 'name' => 'Juguete Goma', 'category' => 'juguetes', 'price' => 30.999, 'image' => '../assets/images/juguete1.jpeg'],
+    ['id' => 11, 'name' => 'Jueguete Hueso', 'category' => 'juguetes', 'price' => 30.999, 'image' => '../assets/images/juguetehueso.jpg'],
+    ['id' => 12, 'name' => 'Jueguete Hueso Real', 'category' => 'juguetes', 'price' => 30.999, 'image' => '../assets/images/juguetehuesoreal.jpg'],
+    ['id' => 13, 'name' => 'Max', 'category' => 'alimento', 'price' => 30.999, 'image' => '../assets/images/max.jpg'],
+    ['id' => 14, 'name' => 'Meow Mix', 'category' => 'alimento', 'price' => 30.999, 'image' => '../assets/images/meowmix.jpg'],
+    ['id' => 15, 'name' => 'Monello', 'category' => 'alimento', 'price' => 30.999, 'image' => '../assets/images/Monello.jpg'],
+    ['id' => 16, 'name' => 'Pedigree Cachorro', 'category' => 'alimento', 'price' => 30.999, 'image' => '../assets/images/pedigreecachorro.jpg'],
+    ['id' => 17, 'name' => 'Whiskas', 'category' => 'alimento', 'price' => 30.999, 'image' => '../assets/images/whiskas.png'],
 ];
 
 $filteredProducts = $products;
@@ -58,11 +69,10 @@ if (isset($_POST['add_to_cart'])) {
         <div class="filter-buttons">
             <form method="post">
                 <button type="submit" name="category" value="todos">Todos</button>
-                <button type="submit" name="category" value="roses">Rosas</button>
-                <button type="submit" name="category" value="sunflowers">Girasoles</button>
-                <button type="submit" name="category" value="tulips">Tulipanes</button>
-                <button type="submit" name="category" value="orchids">Orquídeas</button>
-                <button type="submit" name="category" value="lilies">Lirios</button>
+                <button type="submit" name="category" value="collares">Collares</button>
+                <button type="submit" name="category" value="juguetes">Juguetes</button>
+                <button type="submit" name="category" value="alimento">Alimento</button>
+                <button type="submit" name="category" value="premios">Premios</button>
             </form>
         </div>
 
@@ -80,8 +90,6 @@ if (isset($_POST['add_to_cart'])) {
             <?php endforeach; ?>
         </div>
     </div>
-    <footer>
-        <p>&copy; 2024 LEZMEZ - PetShop</p>
-    </footer>
+    
 </body>
 </html>
