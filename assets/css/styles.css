@@ -194,6 +194,78 @@ h2 {
     background-color: darkblue;
 }
 
+/* Estilos para la página de pago */
+.payment-form {
+    width: 80%;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.payment-form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+}
+
+.payment-form table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.payment-form th, .payment-form td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.payment-form th {
+    background-color: #f2f2f2;
+}
+
+.payment-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.payment-form input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.payment-form input:focus {
+    border-color: #333;
+}
+
+.payment-form button {
+    width: 100%;
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.payment-form button:hover {
+    background-color: darkblue;
+}
+
 footer {
     text-align: center;
     color: #fff;

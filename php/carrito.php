@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -41,9 +40,9 @@ include 'header.php';
                         <tr>
                             <td><img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>"></td>
                             <td><?php echo $product['name']; ?></td>
-                            <td>$ <?php echo number_format($product['price'] / 100, 2); ?> USD</td>
+                            <td>$ <?php echo number_format($product['price'], 2); ?> USD</td>
                             <td><?php echo $product['quantity']; ?></td>
-                            <td>$ <?php echo number_format($subtotal / 100, 2); ?> USD</td>
+                            <td>$ <?php echo number_format($subtotal, 2); ?> USD</td>
                             <td>
                                 <form method="post">
                                     <input type="hidden" name="product_id" value="<?php echo $id; ?>">
@@ -54,11 +53,17 @@ include 'header.php';
                     <?php endforeach; ?>
                     <tr>
                         <td colspan="4" style="text-align:right;">Total</td>
-                        <td>$ <?php echo number_format($total / 100, 2); ?> USD</td>
+                        <td>$ <?php echo number_format($total, 2); ?> USD</td>
                         <td></td>
                     </tr>
                 </tbody>
             </table>
+        <?php endif; ?>
+    </div>
+    <div class="cart-buttons">
+        <button onclick="window.location.href='catalogo.php'">Volver al Catálogo</button>
+        <?php if (!empty($_SESSION['cart'])): ?>
+            <button onclick="window.location.href='pago.php'">Proceder al Pago</button>
         <?php endif; ?>
     </div>
 </div>
