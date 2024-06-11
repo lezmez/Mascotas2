@@ -1,18 +1,16 @@
 <?php
+session_start();
 
-    session_start();
-
-    if(!isset($_SESSION['usuario'])){
-        echo '
-            <script>
-                alert("Por favor debes iniciar sesión");
-                window.location = "index.php";
-            </script>
-        ';
-        session_destroy();
-        die();
-    }
-    
+if (!isset($_SESSION['usuario'])) {
+    echo '
+        <script>
+            alert("Por favor debes iniciar sesión");
+            window.location = "index.php";
+        </script>
+    ';
+    session_destroy();
+    die();
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +22,10 @@
     <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 <body>
-    <button onclick="window.location.href='bienvenida_cliente.php'" class="back-to-menu">◁ HOME</button>
+    <div class="header">
+        <button onclick="window.location.href='bienvenida_cliente.php'" class="back-to-menu">◁ HOME</button>
+        <button onclick="window.location.href='php/carrito.php'" class="cart-button">🛒 Carrito (<?php echo count($_SESSION['cart'] ?? []); ?>)</button>
+    </div>
     <div class="content">
         <h1>Bienvenido a PetShop</h1>
         <p>Seleccione una opción del menú para continuar.</p>

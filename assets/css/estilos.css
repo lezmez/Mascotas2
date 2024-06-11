@@ -13,7 +13,7 @@ body{
     background-position: center;
     background-attachment: fixed;
 }
-.back-to-menu {
+.back-to-menu, .cart-button {
     display: inline-block;
     margin: 20px;
     padding: 15px 30px;
@@ -27,6 +27,10 @@ body{
 }
 
 .back-to-menu:hover {
+    background-color: #007bff;
+    color: white;
+}
+.cart-button:hover {
     background-color: #007bff;
     color: white;
 }
