@@ -6,7 +6,7 @@
     $usuario = $_POST['usuario'];
     $contrasena = $_POST['contrasena'];
 
-    $result = mysqli_query($conexion, "SELECT usuarios.nombre_completo, cargo.descripcion  
+    $result = mysqli_query($conexion, "SELECT usuarios.primer_nombre, cargo.descripcion  
                                     FROM usuarios INNER JOIN cargo ON(usuarios.id_cargo=cargo.id) 
                                     WHERE usuario='$usuario' and contrasena='$contrasena' ");
     $row = $result -> fetch_array(MYSQLI_ASSOC);

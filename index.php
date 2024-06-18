@@ -52,11 +52,13 @@
                     <!--Register-->
                     <form action="php/registro_usuario_be.php" method="POST" class="formulario__register">
                         <h2>Regístrarse</h2>
-                        <input type="text" placeholder="Nombres" name="nombre_completo">
-                        <input type="text" placeholder="Apellidos" name="apellidos">
-                        <input type="text" placeholder="Correo Electronico" name="correo">
-                        <input type="text" placeholder="Usuario" name="usuario">
-                        <input type="password" placeholder="Contraseña" name="contrasena">
+                        <input type="text" placeholder="Primer Nombre" name="primer_nombre" required>
+                        <input type="text" placeholder="Segundo Nombre" name="segundo_nombre">
+                        <input type="text" placeholder="Primer Apellido" name="primer_apellido" required>
+                        <input type="text" placeholder="segundo Apellido" name="segundo_apellido" >
+                        <input type="text" placeholder="Correo Electronico" name="correo" required>
+                        <input type="text" placeholder="Usuario" name="usuario" required>
+                        <input type="password" placeholder="Contraseña" name="contrasena" required>
                         <button>Regístrarse</button>
                     </form>
                 </div>
