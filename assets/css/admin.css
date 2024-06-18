@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-image: url(../images/admin.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+.back-to-menu, .cart-button {
+    display: inline-block;
+    margin: 20px;
+    padding: 15px 30px;
+    background-color: white;
+    color: #007bff;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back-to-menu:hover {
+    background-color: #007bff;
+    color: white;
+}
+.cart-button:hover {
+    background-color: #007bff;
+    color: white;
+}
+h1 {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+p {
+    text-align: center;
+    color: white;
+}
+.div h1 {
+    color: white;
+}
+.navbar {
+    background-color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navbar ul li a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    text-align: center;
+    margin: 50px;
+}
+main{
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.contenedor__todo{
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+}
+footer {
+    text-align: center;
+    color: #fff;
+    padding: 10px 0;
+    background-color: #000000;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -1px 10px rgb(13, 70, 214);
+}
+
+footer p {
+    margin: 0;
+}

@@ -21,8 +21,7 @@ $usuario = $_SESSION['usuario'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú Principal - PetShop</title>
-    <link rel="stylesheet" href="assets/css/estilos.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
 </head>
 <body>
     <button onclick="window.location.href='bienvenida.php'" class="back-to-menu">◁ HOME</button>

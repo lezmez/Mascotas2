@@ -62,13 +62,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Inventario - PetShop</title>
-    <link rel="stylesheet" href="assets/css/estilos.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/gestion_inventario.css">
 </head>
 <body>
+    <button onclick="window.location.href='../bienvenida.php'" class="back-to-menu">◁ HOME</button>
     <div class="content">
         <h1>Gestión de Inventario</h1>
-        <button onclick="window.location.href='../bienvenida.php'" class="back-to-menu">◁ HOME</button>
         
         <h2>Productos</h2>
         <table>
@@ -102,8 +101,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <td><input type="text" name="image" value="<?php echo $producto['image']; ?>" required></td>
                             <td>
                                 <input type="hidden" name="product_id" value="<?php echo $producto['id']; ?>">
-                                <button type="submit" name="update_product">Actualizar</button>
-                                <button type="submit" name="delete_product">Eliminar</button>
+                                <button type="submit" name="update_product" class="update-button">Actualizar</button>
+                                <button type="submit" name="delete_product" class="delete-button">Eliminar</button>
                             </td>
                         </form>
                     </tr>
@@ -142,12 +141,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <td><input type="text" name="image" required></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button type="submit" name="add_product">Agregar Producto</button></td>
+                    <td colspan="2"><button type="submit" name="add_product" class="add-button">Agregar Producto</button></td>
                 </tr>
             </table>
         </form>
     </div>
-    <footer>
+    <footer class="footer">
         <p>&copy; 2024 LEZMEZ - PetShop</p>
     </footer>
 </body>
