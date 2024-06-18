@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
@@ -13,25 +12,9 @@ if (!isset($_SESSION['usuario'])) {
     die();
 }
 
-$products = [
-    ['id' => 1, 'name' => 'Collar para Gato', 'category' => 'collares', 'price' => 19999, 'image' => '../assets/images/collargato.jpeg'],
-    ['id' => 2, 'name' => 'Collar para Perro', 'category' => 'collares', 'price' => 19999, 'image' => '../assets/images/collarperro.jpg'],
-    ['id' => 3, 'name' => 'Combo de Juguetes', 'category' => 'juguetes', 'price' => 15999, 'image' => '../assets/images/combojuguetes.jpg'],
-    ['id' => 4, 'name' => 'Dog Chow', 'category' => 'alimento', 'price' => 26999, 'image' => '../assets/images/dogchow.jpg'],
-    ['id' => 5, 'name' => 'Dog Chow Adultos', 'category' => 'alimento', 'price' => 39999, 'image' => '../assets/images/dogchowadultos.jpg'],
-    ['id' => 6, 'name' => 'Dog Gourmet Adultos', 'category' => 'alimento', 'price' => 30999, 'image' => '../assets/images/dogourmetadulto.jpg'],
-    ['id' => 7, 'name' => 'Don Kat', 'category' => 'alimento', 'price' => 30999, 'image' => '../assets/images/DONKAT.jpg'],
-    ['id' => 8, 'name' => 'Hueso Argos', 'category' => 'premios', 'price' => 30999, 'image' => '../assets/images/huesoargos.jpeg'],
-    ['id' => 9, 'name' => 'Croquetas Premio', 'category' => 'premios', 'price' => 30999, 'image' => '../assets/images/huesopremio.jpg'],
-    ['id' => 10, 'name' => 'Juguete Goma', 'category' => 'juguetes', 'price' => 30999, 'image' => '../assets/images/juguete1.jpeg'],
-    ['id' => 11, 'name' => 'Juguete Hueso', 'category' => 'juguetes', 'price' => 30999, 'image' => '../assets/images/juguetehueso.jpg'],
-    ['id' => 12, 'name' => 'Juguete Hueso Real', 'category' => 'juguetes', 'price' => 30999, 'image' => '../assets/images/juguetehuesoreal.jpg'],
-    ['id' => 13, 'name' => 'Max', 'category' => 'alimento', 'price' => 30999, 'image' => '../assets/images/max.jpg'],
-    ['id' => 14, 'name' => 'Meow Mix', 'category' => 'alimento', 'price' => 30999, 'image' => '../assets/images/meowmix.jpg'],
-    ['id' => 15, 'name' => 'Monello', 'category' => 'alimento', 'price' => 30999, 'image' => '../assets/images/Monello.jpg'],
-    ['id' => 16, 'name' => 'Pedigree Cachorro', 'category' => 'alimento', 'price' => 30999, 'image' => '../assets/images/pedigreecachorro.jpg'],
-    ['id' => 17, 'name' => 'Whiskas', 'category' => 'alimento', 'price' => 30999, 'image' => '../assets/images/whiskas.png'],
-];
+$productosFilePath = '../json/productos.json';
+$json_data = file_get_contents($productosFilePath);
+$products = json_decode($json_data, true)['products'];
 
 $filteredProducts = $products;
 
@@ -62,6 +45,7 @@ if (isset($_POST['add_to_cart'])) {
             $_SESSION['cart'][$productId] = [
                 'name' => $product['name'],
                 'price' => $product['price'],
+                'discount' => $product['discount'],
                 'image' => $product['image'],
                 'quantity' => 1
             ];
@@ -75,11 +59,19 @@ if (isset($_POST['add_to_cart'])) {
 }
 ?>
 
-<?php include 'header.php'; ?>
-
-<div>
-    <h2>Catálogo</h2>
-    <div class="filter-buttons">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos - PetShop</title>
+    <link rel="stylesheet" href="../assets/css/catalogo.css">
+</head>
+<body>
+    <button onclick="window.location.href='../bienvenida_cliente.php'" class="back-to-menu">◁ HOME</button>
+    <button onclick="window.location.href='carrito.php'" class="cart-button">🛒 Carrito (<?php echo count($_SESSION['cart'] ?? []); ?>)</button>
+    <div class="content">
+        <h1>Catálogo de Productos</h1>
         <form method="post">
             <button type="submit" name="category" value="todos">Todos</button>
             <button type="submit" name="category" value="collares">Collares</button>
@@ -87,22 +79,23 @@ if (isset($_POST['add_to_cart'])) {
             <button type="submit" name="category" value="alimento">Alimento</button>
             <button type="submit" name="category" value="premios">Premios</button>
         </form>
+        <div class="product-list">
+            <?php foreach ($filteredProducts as $product): ?>
+                <div class="product-item">
+                    <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
+                    <h3><?php echo $product['name']; ?></h3>
+                    <?php if ($product['discount'] > 0): ?>
+                        <p class="price"><s>$<?php echo number_format($product['price'] / 100, 2); ?></s> $<?php echo number_format(($product['price'] - $product['discount']) / 100, 2); ?></p>
+                    <?php else: ?>
+                        <p class="price">$<?php echo number_format($product['price'] / 100, 2); ?></p>
+                    <?php endif; ?>
+                    <form method="post">
+                        <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                        <button type="submit" name="add_to_cart">Añadir al carrito</button>
+                    </form>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
-
-    <div class="products">
-        <?php foreach ($filteredProducts as $product): ?>
-            <div class="product">
-                <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
-                <h3><?php echo $product['name']; ?></h3>
-                <p>$ <?php echo number_format($product['price'] / 100, 2); ?> USD</p>
-                <form method="post">
-                    <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
-                    <button type="submit" name="add_to_cart">Add to Cart</button>
-                </form>
-            </div>
-        <?php endforeach; ?>
-    </div>
-</div>
-
 </body>
 </html>
